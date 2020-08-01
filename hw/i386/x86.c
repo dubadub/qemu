@@ -498,6 +498,7 @@ static void macho_highest_lowest(struct mach_header_64* mh, uint64_t *lowaddr, u
 
 void x86_load_xnu(X86MachineState *x86ms, FWCfgState *fw_cfg)
 {
+    fprintf(stderr, "Loading xnu kernel\n");
     MachineState *machine = MACHINE(x86ms);
     hwaddr kernel_load_offset = 0x00000000;
     hwaddr mem_base = machine->device_memory->base;
@@ -547,6 +548,7 @@ void x86_load_xnu(X86MachineState *x86ms, FWCfgState *fw_cfg)
     if (rom_buf) {
         g_free(rom_buf);
     }
+    fprintf(stderr, "Loaded xnu kernel\n");
 }
 
 void x86_load_linux(X86MachineState *x86ms,
@@ -555,6 +557,7 @@ void x86_load_linux(X86MachineState *x86ms,
                     bool pvh_enabled,
                     bool linuxboot_dma_enabled)
 {
+    fprintf(stderr, "Loading linux kernel\n");
     uint16_t protocol;
     int setup_size, kernel_size, cmdline_size;
     int dtb_size, setup_data_offset;
