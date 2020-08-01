@@ -1037,8 +1037,9 @@ void pc_memory_init(PCMachineState *pcms,
     }
 
     if (linux_boot) {
-        x86_load_linux(x86ms, fw_cfg, pcmc->acpi_data_size,
-                       pcmc->pvh_enabled, pcmc->linuxboot_dma_enabled);
+        x86_load_xnu(x86ms, fw_cfg);
+        // x86_load_linux(x86ms, fw_cfg, pcmc->acpi_data_size,
+        //                pcmc->pvh_enabled, pcmc->linuxboot_dma_enabled);
     }
 
     for (i = 0; i < nb_option_roms; i++) {
